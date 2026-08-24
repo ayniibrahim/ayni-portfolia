@@ -1,0 +1,52 @@
+﻿<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#173F3A"/>
+      <stop offset="0.58" stop-color="#28645A"/>
+      <stop offset="1" stop-color="#E58B5B"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7D7A8"/>
+      <stop offset="1" stop-color="#E7A56E"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#102D2A" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="1020" cy="126" r="74" fill="#F8D69B" fill-opacity="0.8"/>
+  <path d="M0 600C220 550 360 620 560 574C800 518 970 600 1200 540V800H0Z" fill="#163D38" fill-opacity="0.76"/>
+  <g filter="url(#shadow)">
+    <rect x="184" y="132" width="832" height="530" rx="24" fill="url(#wall)"/>
+    <path d="M152 176H1048L1012 276H188Z" fill="#F3C18A"/>
+    <path d="M152 176H1048L1028 220H172Z" fill="#D85F4F"/>
+    <path d="M210 220H1018L1004 254H196Z" fill="#FFF0CD"/>
+    <path d="M197 254H1003L989 288H211Z" fill="#D85F4F"/>
+    <rect x="240" y="310" width="300" height="238" rx="14" fill="#173F3A"/>
+    <rect x="660" y="310" width="280" height="238" rx="14" fill="#173F3A"/>
+    <path d="M390 310V548M800 310V548" stroke="#EFC18A" stroke-width="10"/>
+    <path d="M240 430H540M660 430H940" stroke="#EFC18A" stroke-width="10"/>
+    <path d="M255 323H525V417H255Z" fill="#73A798" fill-opacity="0.72"/>
+    <path d="M675 323H925V417H675Z" fill="#E59B68" fill-opacity="0.62"/>
+    <rect x="450" y="566" width="300" height="70" rx="18" fill="#8A4A35"/>
+    <rect x="493" y="590" width="214" height="18" rx="9" fill="#F3C18A"/>
+  </g>
+  <g>
+    <path d="M95 640C116 560 166 540 195 578C223 615 209 680 188 720H75Z" fill="#5B9B78"/>
+    <path d="M106 644C127 586 158 570 181 591C200 609 189 663 172 698" fill="none" stroke="#B9D49A" stroke-width="8"/>
+    <path d="M1095 648C1066 566 1018 550 989 587C962 621 976 683 1002 720H1128Z" fill="#5B9B78"/>
+    <path d="M1090 650C1067 590 1039 574 1017 595C999 614 1012 665 1029 700" fill="none" stroke="#B9D49A" stroke-width="8"/>
+  </g>
+  <g filter="url(#shadow)">
+    <ellipse cx="600" cy="704" rx="330" ry="42" fill="#4C2C28"/>
+    <ellipse cx="600" cy="670" rx="270" ry="34" fill="#D7A16E"/>
+    <ellipse cx="600" cy="642" rx="210" ry="72" fill="#FFF4D8" stroke="#D85F4F" stroke-width="8"/>
+    <ellipse cx="600" cy="642" rx="164" ry="51" fill="#D96A3E"/>
+    <path d="M478 641C520 598 551 680 590 632C630 582 671 679 720 625" fill="none" stroke="#F7C566" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="536" cy="628" r="11" fill="#5B9B54"/>
+    <circle cx="670" cy="651" r="10" fill="#5B9B54"/>
+    <path d="M836 594V680M836 594C860 574 883 590 875 615C867 639 851 642 836 638" fill="none" stroke="#F7E4BD" stroke-width="8"/>
+    <path d="M864 681H808" stroke="#F7E4BD" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <text x="600" y="110" text-anchor="middle" fill="#FFF4D8" font-family="Georgia, serif" font-size="40" font-weight="700" letter-spacing="2">MUMTAAZ</text>
+</svg>

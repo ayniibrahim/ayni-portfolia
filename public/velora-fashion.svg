@@ -1,0 +1,44 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="backdrop" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9E1D5"/>
+      <stop offset="0.55" stop-color="#C9B8A5"/>
+      <stop offset="1" stop-color="#8A7564"/>
+    </linearGradient>
+    <linearGradient id="dress" x1="580" y1="180" x2="760" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2EBDD"/>
+      <stop offset="1" stop-color="#B7A189"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#3A3029" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#backdrop)"/>
+  <path d="M0 0H370V800H0Z" fill="#F5EFE6" fill-opacity="0.7"/>
+  <path d="M76 0V800M294 0V800" stroke="#B9A592" stroke-width="8" stroke-opacity="0.5"/>
+  <path d="M370 0H1010V800H370Z" fill="#756252" fill-opacity="0.28"/>
+  <path d="M370 110H1010" stroke="#F4E9D8" stroke-width="3" stroke-opacity="0.7"/>
+  <text x="82" y="108" fill="#463B34" font-family="Georgia, serif" font-size="42" letter-spacing="7">VELORA</text>
+  <text x="84" y="144" fill="#67584D" font-family="Arial, sans-serif" font-size="15" letter-spacing="4">ATELIER COLLECTION</text>
+  <g filter="url(#shadow)">
+    <path d="M655 191C641 244 616 271 590 301L544 680C602 710 719 710 792 680L746 301C714 272 689 239 680 191Z" fill="url(#dress)"/>
+    <path d="M655 191C661 221 676 234 680 249C686 234 698 218 702 191Z" fill="#D7C8B7"/>
+    <path d="M590 301C624 324 711 324 746 301" fill="none" stroke="#9C8977" stroke-width="4"/>
+    <path d="M600 349C644 374 696 374 737 349M587 475C646 498 705 498 752 475M572 594C642 614 719 614 770 590" fill="none" stroke="#AA9682" stroke-width="4" stroke-opacity="0.75"/>
+    <path d="M544 680C613 697 724 699 792 680" fill="none" stroke="#F7F1E8" stroke-width="7"/>
+    <circle cx="668" cy="160" r="37" fill="#AC8870"/>
+    <path d="M627 157C632 102 702 103 711 158C689 133 651 129 627 157Z" fill="#433B38"/>
+    <path d="M631 197C597 210 568 241 546 294L602 310L642 242Z" fill="#DCCDC0"/>
+    <path d="M704 242L748 310L801 294C782 241 750 210 706 197Z" fill="#DCCDC0"/>
+    <path d="M546 294L512 442" stroke="#DCCDC0" stroke-width="26" stroke-linecap="round"/>
+    <path d="M801 294L830 441" stroke="#DCCDC0" stroke-width="26" stroke-linecap="round"/>
+    <path d="M511 437L532 444M830 437L808 444" stroke="#463B34" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(904 520)" filter="url(#shadow)">
+    <path d="M0 152H166" stroke="#463B34" stroke-width="13" stroke-linecap="round"/>
+    <path d="M36 142V24C36 10 48 0 62 0H116C130 0 142 10 142 24V142" fill="#9C6A4F"/>
+    <path d="M54 30H124V108H54Z" fill="#E6C99C"/>
+    <path d="M60 42H118" stroke="#8C644E" stroke-width="7"/>
+  </g>
+  <text x="82" y="700" fill="#463B34" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">QUIET LUXURY / AUTUMN 2026</text>
+</svg>
