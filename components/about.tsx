@@ -2,28 +2,18 @@
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/30 dark:bg-muted/10">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-12">About Me</h2>
-
-        <div className="space-y-6 text-lg text-foreground/70 leading-relaxed">
-          <p>
-            I'm an IT student and aspiring Full Stack Developer passionate about creating innovative digital solutions.
-            With a strong foundation in both frontend and backend technologies, I love tackling complex problems and
-            building applications that make a difference.
-          </p>
-
-          <p>
-            My journey in tech has been driven by curiosity and a desire to continuously learn. I believe in writing
-            clean, maintainable code and follow best practices in every project I undertake. Whether it's designing
-            intuitive user interfaces or architecting robust backend systems, I'm committed to excellence.
-          </p>
-
-          <p>
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or
-            collaborating with other developers to build something amazing. I'm always open to interesting opportunities
-            and love connecting with fellow tech enthusiasts.
-          </p>
+    <section id="about" className="section-shell section-tint">
+      <div className="content-width grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+        <div className="section-heading">
+          <p className="eyebrow">A little context</p>
+          <h2>Building with curiosity and care.</h2>
+        </div>
+        <div>
+          <p className="theme-body max-w-3xl text-xl leading-9">Computer Science graduate and Full-Stack Developer passionate about building modern web applications and solving real-world problems through technology.</p>
+          <p className="theme-muted mt-6 max-w-3xl leading-8">My work spans frontend development, backend architecture, responsive UI, clean and maintainable code, problem solving, and continuous learning. I enjoy turning complex requirements into experiences that feel simple to use.</p>
+          <div className="mt-10 grid gap-3 sm:grid-cols-3">
+            {["5+ Projects", "Full-Stack Development", "Modern Web Technologies"].map((highlight) => <div key={highlight} className="theme-border theme-surface theme-body rounded-xl border px-4 py-4 text-sm font-medium">{highlight}</div>)}
+          </div>
         </div>
       </div>
     </section>

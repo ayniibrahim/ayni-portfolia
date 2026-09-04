@@ -5,16 +5,18 @@ import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Skills from "@/components/skills"
+import WhatIDo from "@/components/what-i-do"
 import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import BackToTop from "@/components/back-to-top"
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem("darkMode") === "true"
+    const savedMode = localStorage.getItem("darkMode")
+    const isDarkMode = savedMode === null ? true : savedMode === "true"
     setDarkMode(isDarkMode)
     if (isDarkMode) {
       document.documentElement.classList.add("dark")
@@ -39,6 +41,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
+        <WhatIDo />
         <Projects />
         <Contact />
       </main>

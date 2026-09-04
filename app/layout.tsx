@@ -8,9 +8,15 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Ayni Ibrahim - Full Stack Developer",
-  description: "Portfolio of Ayni Ibrahim, a Full Stack Developer. Check out my projects and skills.",
-  generator: "v0.app",
+  title: "Ayni Ibrahim | Full-Stack Web Developer",
+  description:
+    "Portfolio of Ayni Ibrahim, a Full-Stack Web Developer specializing in React, Next.js, Node.js, and modern web technologies.",
+  openGraph: {
+    title: "Ayni Ibrahim | Full-Stack Web Developer",
+    description:
+      "Portfolio of Ayni Ibrahim, a Full-Stack Web Developer specializing in React, Next.js, Node.js, and modern web technologies.",
+    type: "website",
+  },
 }
 
 export default function RootLayout({

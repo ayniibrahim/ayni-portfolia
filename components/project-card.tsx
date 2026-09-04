@@ -41,62 +41,45 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   }, [])
 
   return (
-    <div
+    <article
       ref={ref}
-      className={`group rounded-lg overflow-hidden border border-border hover:border-indigo-400 bg-card hover:shadow-xl transition-all duration-300 ${
+      className={`glass-card group overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-2xl hover:shadow-cyan-950/20 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
-      {/* Image Container with Lazy Loading */}
-      <div className="relative h-48 overflow-hidden bg-muted">
+      <div className="theme-media relative aspect-[16/9] overflow-hidden">
         <Image
           src={project.image || "/placeholder.svg"}
           alt={project.title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover group-hover:scale-110 transition-transform duration-300"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
       </div>
 
-      {/* Content */}
-      <div className="p-6 space-y-4">
-        <h3 className="text-2xl font-bold group-hover:text-indigo-600 transition-colors">{project.title}</h3>
+      <div className="space-y-5 p-6">
+        <h3 className="theme-strong text-2xl font-semibold tracking-tight transition-colors group-hover:text-cyan-700 dark:group-hover:text-cyan-200">{project.title}</h3>
 
-        <p className="text-foreground/70 leading-relaxed">{project.description}</p>
+        <p className="theme-body leading-7">{project.description}</p>
 
         {/* Tech Stack */}
         <div className="flex flex-wrap gap-2">
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 text-sm bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full"
+              className="theme-border theme-surface theme-body rounded-full border px-3 py-1 text-xs"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex gap-4 pt-2">
-          <a
-            href={project.github}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-muted hover:bg-indigo-100 dark:hover:bg-indigo-900/30 rounded-lg text-foreground/70 hover:text-indigo-600 transition-colors"
-            aria-label="GitHub repository"
-          >
-            <Github className="w-4 h-4" />
-            <span className="text-sm font-medium">Code</span>
-          </a>
-          <a
-            href={project.live}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-muted hover:bg-indigo-100 dark:hover:bg-indigo-900/30 rounded-lg text-foreground/70 hover:text-indigo-600 transition-colors"
-            aria-label="Live demo"
-          >
-            <ExternalLink className="w-4 h-4" />
-            <span className="text-sm font-medium">Live</span>
-          </a>
+        <div className="flex flex-wrap gap-3 pt-1">
+          {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="secondary-button !px-4 !py-2 !text-xs" aria-label={`${project.title} GitHub repository`}><Github className="h-4 w-4" /> Code</a>}
+          {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="primary-button !px-4 !py-2 !text-xs" aria-label={`${project.title} live demo`}><ExternalLink className="h-4 w-4" /> Live Demo</a>}
         </div>
       </div>
-    </div>
+    </article>
   )
 }

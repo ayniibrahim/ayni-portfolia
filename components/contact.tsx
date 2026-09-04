@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Mail, Linkedin, Github, Twitter, Send } from "lucide-react"
+import { Mail, Linkedin, Github, Send } from "lucide-react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ export default function Contact() {
     message: "",
   })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -19,11 +20,15 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to a backend
-    console.log("Form submitted:", formData)
+    setError("")
+    if (formData.message.trim().length < 10) {
+      setError("Please include a little more detail in your message.")
+      return
+    }
+    const subject = encodeURIComponent(`Portfolio enquiry from ${formData.name}`)
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)
+    window.location.href = `mailto:ayniibrahim68@gmail.com?subject=${subject}&body=${body}`
     setSubmitted(true)
-    setFormData({ name: "", email: "", message: "" })
-    setTimeout(() => setSubmitted(false), 3000)
   }
 
   const socialLinks = [
@@ -40,10 +45,10 @@ export default function Contact() {
       color: "hover:text-gray-800 dark:hover:text-gray-300",
     },
     {
-      label: "Twitter",
-      icon: Twitter,
-      href: "https://twitter.com/ayni_ibrahim",
-      color: "hover:text-blue-400",
+      label: "X",
+      icon: Github,
+      href: "https://x.com/ayni_ibrahim",
+      color: "hover:text-foreground",
     },
     {
       label: "Email",
@@ -54,16 +59,16 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-12">Get In Touch</h2>
+    <section id="contact" className="section-shell">
+      <div className="content-width">
+        <div className="section-heading mb-12"><p className="eyebrow">Start a conversation</p><h2>Let&apos;s Build Something Great</h2><p>Have a project, opportunity, or idea? I&apos;d love to hear about it.</p></div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="glass-card space-y-5 p-6 sm:p-8">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="theme-strong mb-2 block text-sm font-medium">
                   Your Name
                 </label>
                 <input
@@ -73,13 +78,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-indigo-600 transition-all"
+                  className="field-input"
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="theme-strong mb-2 block text-sm font-medium">
                   Your Email
                 </label>
                 <input
@@ -89,13 +94,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-indigo-600 transition-all"
+                  className="field-input"
                   placeholder="john@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="theme-strong mb-2 block text-sm font-medium">
                   Message
                 </label>
                 <textarea
@@ -105,35 +110,33 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-indigo-600 transition-all resize-none"
+                  className="field-input resize-none"
                   placeholder="Your message here..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 hover:shadow-lg transition-all duration-200 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                className="primary-button w-full justify-center"
               >
                 <Send className="w-4 h-4" />
                 Send Message
               </button>
 
               {submitted && (
-                <div className="p-4 bg-green-100 dark:bg-green-900/30 border border-green-400 text-green-800 dark:text-green-300 rounded-lg text-sm">
-                  Thank you for your message! I'll get back to you soon.
+                <div className="rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-800 dark:text-green-300">
+                  Your email app is ready with the message. Send it there to reach me directly.
                 </div>
               )}
+              {error && <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-800 dark:text-rose-100">{error}</div>}
             </form>
           </div>
 
           {/* Social Links */}
           <div className="flex flex-col justify-between">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold">Let's Connect</h3>
-              <p className="text-foreground/70 leading-relaxed">
-                I'm always interested in hearing about new projects and opportunities. Feel free to reach out through
-                any of these channels.
-              </p>
+              <h3 className="theme-strong text-2xl font-semibold">Find me online</h3>
+              <p className="theme-body leading-8">I&apos;m always interested in hearing about new projects and opportunities. Reach out through any of these channels.</p>
 
               <div className="space-y-4">
                 {socialLinks.map((social) => {
@@ -142,12 +145,12 @@ export default function Contact() {
                     <a
                       key={social.label}
                       href={social.href}
-                      className={`flex items-center gap-3 text-foreground/70 ${social.color} transition-colors group`}
+                      className={`theme-muted flex items-center gap-3 ${social.color} transition-colors group`}
                       target={social.label !== "Email" ? "_blank" : undefined}
                       rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
                     >
-                      <div className="p-2 rounded-lg bg-muted group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/30 transition-colors">
-                        <Icon className="w-5 h-5" />
+                      <div className="theme-border theme-surface flex h-10 w-10 items-center justify-center rounded-xl border transition-colors group-hover:border-cyan-500/40 group-hover:bg-cyan-500/10">
+                        {social.label === "X" ? <span className="font-bold">X</span> : <Icon className="h-5 w-5" />}
                       </div>
                       <span className="font-medium">{social.label}</span>
                     </a>
